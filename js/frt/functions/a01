@@ -1,0 +1,97 @@
+//função declarativa:
+
+function soma (a, b){
+    return a + b;
+}
+
+console.log(soma(5,9))
+
+//expressões de função
+
+const multiplicar = function (a, b) {
+    return a * b;
+}
+
+console.log(multiplicar(2,3))
+
+//Arrow functions
+
+const subtrair = (a, b) => a - b;
+
+console.log(subtrair(5,4))
+
+//funções anônimas
+
+setTimeout(function () {
+    console.log("Isso é uma função anônima")
+} ,1000);
+
+//funções recursivas
+
+function fatorial(n) {
+    // Condição de parada
+    if (n === 0) {
+        return 1;
+    }
+    // Chamada recursiva
+    return n * fatorial(n - 1);
+}
+
+console.log(fatorial(5)); // Saída: 120
+
+//Funções de Callback
+
+function processarCallback(callback) {
+    callback();
+}
+
+processarCallback(() => console.log("Callback executado!"));
+
+//Funções de Ordem Superior
+
+function criarMultiplicador(fator) {
+    return function(x) {
+        return x * fator;
+    };
+}
+
+const dobrar = criarMultiplicador(2);
+console.log(dobrar(5)); // 10
+
+//Métodos
+const objeto = {
+    valor: 10,
+    mostrarValor: function() {
+        console.log(this.valor);
+    }
+};
+
+objeto.mostrarValor(); // 10
+
+const carro = {
+    marca: "Toyota",
+    modelo: "Corolla",
+    ano: 2020,
+    atualizarAno: function(novoAno) {
+        this.ano = novoAno;
+    }
+};
+
+console.log(carro.ano);  // Saída: 2020
+carro.atualizarAno(2024);
+console.log(carro.ano);  // Saída: 2024
+
+
+//funções construtoras
+
+function Pessoa(nome) {
+    this.nome = nome;
+}
+
+const pessoa1 = new Pessoa("João");
+
+//Funções IIFE (Immediately Invoked Function Expression)
+
+(function() {
+    console.log("Executada imediatamente!");
+})();
